@@ -1,0 +1,28 @@
+	#contenedor {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+
+
+	.menu ul {
+		margin:0;
+		padding:0;
+		display: flex;
+		list-style: none;
+	}
+	.menu a {
+		display: block;
+		padding: 1em;
+		background-color: #0e330a;
+		text-decoration: none;
+		color: #ffffff;
+	}
+	.menu a:hover {
+		background-color: #CC673B;
+	}
+	.menu ul li ul {
+		display: none;
+	}
+	.menu ul li a:hover + ul, .menu ul li ul:hover {
+		display: block;
+	}
