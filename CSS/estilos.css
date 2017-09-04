@@ -1,6 +1,28 @@
+	html {
+		height: 100%;
+	}
+
+
+	body {
+		position: relative;
+		margin: 0;
+		padding-bottom: 6rem;
+		height: 100%;
+		font-family: Arial, sans-serif;
+		background-color:#758019
+	}
+
+	footer {
+		position: absolute;
+		bottom: 0;
+		text-align: center;
+	}
+
+
 	#contenedor {
 		margin-left: 10%;
 		margin-right: 10%;
+  		height:100%;
 	}
 
 
@@ -10,9 +32,12 @@
 		display: flex;
 		list-style: none;
 	}
-	.menu a {
+
+	.menu a, footer {
 		display: block;
 		padding: 1em;
+		right: 0;
+		left: 0;
 		background-color: #0e330a;
 		text-decoration: none;
 		color: #ffffff;
