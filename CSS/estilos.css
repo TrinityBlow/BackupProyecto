@@ -15,7 +15,6 @@
 	footer {
 		position: absolute;
 		bottom: 0;
-		text-align: center;
 	}
 
 
@@ -25,6 +24,10 @@
   		height:100%;
 	}
 
+
+	span.mover_derecha {
+		float: right;
+	}
 
 	.menu ul {
 		margin:0;
