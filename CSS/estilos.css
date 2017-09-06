@@ -22,14 +22,22 @@
 	footer {
 		position: absolute;
 		bottom: 0;
-		text-align: center;
+		text-align: left;
 		margin-left:10%;
 		margin-right:10%;
 		}
 
+	}
+
+
 
 	.menu {
 		width: 100%;
+	}
+
+
+	span.mover_derecha {
+		float: right;
 	}
 
 	.menu ul {
@@ -59,7 +67,7 @@
 	}
 
 	.search_bar {
-		width=15%;
-		float="left";
+		width:15%;
+		float:left;
 		
 	}
