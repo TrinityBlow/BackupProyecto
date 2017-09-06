@@ -9,6 +9,13 @@
 		padding-bottom: 6rem;
 		height: 100%;
 		font-family: Arial, sans-serif;
+		background-attachment: fixed;
+	}
+
+	.contenedor {
+		margin-left: 10%;
+		margin-right: 10%;
+  		height:100%;
 		background-color:#758019
 	}
 
@@ -16,15 +23,14 @@
 		position: absolute;
 		bottom: 0;
 		text-align: center;
+		margin-left:10%;
+		margin-right:10%;
+		}
+
+
+	.menu {
+		width: 100%;
 	}
-
-
-	#contenedor {
-		margin-left: 10%;
-		margin-right: 10%;
-  		height:100%;
-	}
-
 
 	.menu ul {
 		margin:0;
@@ -35,7 +41,7 @@
 
 	.menu a, footer {
 		display: block;
-		padding: 1em;
+		padding: 1.5em;
 		right: 0;
 		left: 0;
 		background-color: #0e330a;
@@ -48,6 +54,12 @@
 	.menu ul li ul {
 		display: none;
 	}
-	.menu ul li a:hover + ul, .menu ul li ul:hover {
+	.menu ul li a:hover + ul, .menu ul li ul:hover{
 		display: block;
+	}
+
+	.search_bar {
+		width=15%;
+		float="left";
+		
 	}
