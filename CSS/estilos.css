@@ -130,4 +130,11 @@
 		overflow: hidden;
 	}
 	
+	.login-estilo h3 {
+		margin-bottom:1%;
+	}
+
+	#margin-extra{
+		margin-top:3%;
+	}
 	
