@@ -4,10 +4,10 @@
 
 
 	body {
+  		background-image: url("imagenes/fondo.jpg");
 		position: relative;
 		margin: 0;
 		padding-bottom: 6rem;
-		height: 100%;
 		font-family: Arial, sans-serif;
 		background-attachment: fixed;
 	}
@@ -26,8 +26,6 @@
 		margin-left:10%;
 		margin-right:10%;
 		}
-
-	}
 
 
 
@@ -71,3 +69,65 @@
 		float:left;
 		
 	}
+
+	.tressColumn {
+		text-align:center;
+		margin-top:10%;
+		border-left: 1px solid gray;
+		overflow: hidden;
+        column-count: 3;
+	}	
+
+	.arreglarMargin{
+		margin-top:0;
+	}
+
+	.infoBox{
+		margin-top:0;
+		border-color: black;
+		border-width: thick;
+		border-style: double ;
+		padding:1em;
+		margin-left:10%;
+		margin-right:10%;
+	}
+
+	 /* unvisited link */
+	.infoBox a:link {
+		color: #0251d1;
+	}
+
+	/* visited link */
+	.infoBox a:visited {
+		color: #002156;
+	}
+
+	/* mouse over link */
+	.infoBox a:hover {
+		color: red;
+	}
+
+	/* selected link */
+	.infoBox a:active {
+		color: yellow;
+	} 
+
+	section{
+		padding-top:10%;
+		padding-bottom:10%;
+	}
+
+
+	.login-estilo {
+		text-align:center;
+		margin-top:0;
+		border-color: black;
+		border-width: thick;
+		border-style: double;
+		padding:1em;
+		margin-left:25%;
+		margin-right:25%;
+		overflow: hidden;
+	}
+	
+	
