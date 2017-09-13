@@ -1,9 +1,14 @@
+html {
+	height: 100%;
+}
+
 *{
 	margin: 0;
 	padding: 0;
 }
 
 body{
+	background-image: url("imagenes/fondo3.jpg");
 	position: relative;
 	margin: 0;
 	padding-bottom: 6em;
@@ -42,7 +47,7 @@ body{
 	color: #fff;
 	text-decoration: none;
 	display: block;
-	padding: 18%;
+	padding: 1.5em;
 }
 
 .navegacion nav ul li .submenu{
@@ -87,9 +92,79 @@ footer {
 	text-decoration: none;
 	color: #ffffff;			
 	background: #a90329; 
-	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 73%, #6d0019 100%); 
+	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 73%, #6d0019 100%); 	
 	background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 73%,#6d0019 100%);
 	background: linear-gradient(to bottom, #a90329 0%,#8f0222 73%,#6d0019 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
 }
+
+.tressColumn {
+		text-align:center;
+		margin-top:10%;
+		border-left: 1px solid gray;
+		overflow: hidden;
+        column-count: 3;
+}	
+
+.arreglarMargin{
+	margin-top:0;
+}
+
+.infoBox{
+	margin-top:0;
+	border-color: black;
+	border-width: thick;
+	border-style: double ;
+	padding:1em;
+	margin-left:10%;
+	margin-right:10%;
+}
+
+ /* unvisited link */
+.infoBox a:link {
+	color: #0251d1;
+}
+
+/* visited link */
+.infoBox a:visited {
+	color: #d2691e;
+}
+
+/* mouse over link */
+.infoBox a:hover {
+	color: red;
+}
+
+/* selected link */
+.infoBox a:active {
+	color: yellow;
+} 
+
+section{
+	padding-top:10%;
+	padding-bottom:10%;
+}
+
+
+.login-estilo {
+	text-align:center;
+	margin-top:0;
+	border-color: black;
+	border-width: thick;
+	border-style: double;
+	padding:1em;
+	margin-left: 35%;
+	margin-right: 35%;
+	overflow: hidden;
+}
+
+.login-estilo h3 {
+	margin-bottom:1%;
+}
+
+#margin-extra{
+	margin-top:3%;
+}
+
+
 
