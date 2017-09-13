@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	position: relative;
+	margin: 0;
+	padding-bottom: 6em;
+	height: 100%;
+	font-family: Arial, sans-serif;
+	background-attachment: fixed;
+}
+
+.contenedor {
+	margin-left: 10%;
+	margin-right: 10%;
+	height: 100%;
+	background-color: #e7d5ba;
+	overflow:hidden;
+}
+
+.navegacion nav{
+	background: #a90329; 
+	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 73%, #6d0019 100%);
+	background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 73%,#6d0019 100%); 
+	background: linear-gradient(to bottom, #a90329 0%,#8f0222 73%,#6d0019 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+	margin: 4% auto;
+}
+
+.navegacion nav ul{
+	list-style: none;
+	position:relative;
+}
+
+.navegacion nav > ul > li{
+	display: inline-block;
+}
+
+.navegacion nav ul li a{
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 18%;
+}
+
+.navegacion nav ul li .submenu{
+	background: #a90329;
+	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 73%, #6d0019 100%); 
+	background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 73%,#6d0019 100%);
+	background: linear-gradient(to bottom, #a90329 0%,#8f0222 73%,#6d0019 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+	position: absolute;
+	display: none;
+}
+
+.navegacion nav > ul > li:hover span{
+	display: block;
+
+}
+
+.navegacion nav ul li:hover .submenu{
+	display: flex;
+	
+	
+}
+.navegacion a:hover {
+	background:#CC673B;
+}
+
+.navegacion nav ul li ul li a {
+	text-decoration: none;
+	color:#fff;
+}
+
+footer {
+	margin-left:10%;
+	margin-right:10%;
+	display: block;
+	padding: 2.5em 3.05em;
+	right: 0;
+	left: 0;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;			
+	background: #a90329; 
+	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 73%, #6d0019 100%); 
+	background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 73%,#6d0019 100%);
+	background: linear-gradient(to bottom, #a90329 0%,#8f0222 73%,#6d0019 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+}
+
