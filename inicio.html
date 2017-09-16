@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="CSS/styles.css">
 	<title>Hospital Gutierrez</title>
 
 </head>
@@ -12,64 +13,52 @@
 <body>
 
 	<div class="contenedor">
-
-		<div class="header">
-
-			<header>
-
-				<nav class="menu">
-
-					<ul>    
-						<li><a href="#">Logo</a></li>
-						<li>
-							<div id="search_bar">
-
-								<a href="" class=""></a>
-
-								<input type="text" id="bar" placeholder="Buscar...">					
-								<input type="submit" value="Buscar"/>
-
-							</div>
-
+		<header>
+			<div class="navegacion">
+				<nav>
+					<ul>
+						<li><a href="index.html">Logo </a></li>
+						<li><a href="#1">Pacientes </a></li>
+						<li><a href="#2">Administracion &dArr; </a>
+						<div class="submenu">
+							<ul>
+								<li><a href="#3">Usuarios</a></li>
+								<li><a href="#4">Roles</a></li>
+								<li><a href="#5">Permisos</a></li>
+							</ul>
+						</div>
 						</li>
-
-						<li><a href="#">Login</a></li>
+						<li><input type="text" id="bar" placeholder="Buscar..." title="buscador"/>
+						<input type="submit" value="Buscar"/></li>                        
+						<li><a href="login.html">Login </a></li>
 					</ul>
-						
-
-
 				</nav>
-
-
-			</header>
-
-
-	
-
-
-			<section>
-				<div class="tressColumn">
-					<h2 class="arreglarMargin">El Hospital</h2>
-					<p>Este centro de salud tiene ....</p>
+			</div>
+		</header>
 		
-					<h2 class="arreglarMargin">Guardia</h2>
-					<p>Hospital Dr. Ricardo Gutierrez de La Plata ....</p>
+		<section>
+			<div class="tresColumn">
+				<h2>El Hospital</h2>
+				<p>Este centro de salud tiene ....</p>
+				<p class="infoBox"><a href="#6">Mas info >></a></p>
+			</div>
+	
+			<div class="tresColumn">
+				<h2>Guardia</h2>
+				<p>Hospital Dr. Ricardo Gutierrez de La Plata ....</p>
+				<p class="infoBox"><a href="#7">Mas info >></a></p>
+			</div>
 
-					<h2 class="arreglarMargin">Especialidades</h2>
-					<p>Acorde a una respetable trayectoria ....</p>
-				</div>						
-				<div class="tressColumn">
-					<p class="infoBox"><a href="#">Mas info >></a></p>
-					<p class="infoBox"><a href="#">Mas info >></a></p>
-					<p class="infoBox"><a href="#">Mas info >></a></p>
-				</div>
-			</section>
-
-		</div>
+			<div class="tresColumn">
+				<h2>Especialidades</h2>
+				<p>Acorde a una respetable trayectoria ....</p>
+				<p class="infoBox"><a href="#8">Mas info >></a></p>
+			</div>
+		</section>
 
 		<footer>
 
-			<p>Proyecto de Software 2017 - Hospital Dr. Ricardo Gutierrez<span class="mover_derecha">v 0.1.0</span></p>
+			<p>Proyecto de Software 2017 - Hospital Dr. Ricardo Gutierrez<span>v 0.1.0</span></p>
 
 		</footer>
 

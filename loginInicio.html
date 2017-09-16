@@ -13,13 +13,11 @@
 <body>
 
 	<div class="contenedor">
-		
 		<header>
 			<div class="navegacion">
 				<nav>
 					<ul>
-						<li><a href="index.html">Logo </a></li>
-						<li><a href="inicio.html">Inicio </a></li>
+						<li><a href="loginIndex.html">Logo </a></li>
 						<li><a href="#1">Pacientes </a></li>
 						<li><a href="#2">Administracion &dArr; </a>
 						<div class="submenu">
@@ -31,27 +29,33 @@
 						</div>
 						</li>
 						<li><input type="text" id="bar" placeholder="Buscar..." title="buscador"/>
-						<input type="submit" value="Buscar"/></li>     
+						<input type="submit" value="Buscar"/></li>                        
+						<li id="float-derecha"><p>Bienvenido </p></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
-
-
+		
 		<section>
-			<div class="login-estilo">
-				<h2> Log in </h2>
-				 <form action="loginIndex.html" method="get">
-					<h3>Usuario</h3>
-					<input type="text"  name="username" id="username" placeholder="Nombre del usuario..." title="Aca va el nombre del Usuario" autofocus required/><br>
-					<h3>Contraseña</h3>
-					<input type="password" name="password" id="password" placeholder="Contraseña del usuario..." title="Aca va la contraseña del Usuario" required/><br>
-					<input type="submit" value="Acceptar" id="margin-extra"/>
-				</form> 
+			<div class="tresColumn">
+				<h2>El Hospital</h2>
+				<p>Este centro de salud tiene ....</p>
+				<p class="infoBox"><a href="#6">Mas info >></a></p>
+			</div>
+	
+			<div class="tresColumn">
+				<h2>Guardia</h2>
+				<p>Hospital Dr. Ricardo Gutierrez de La Plata ....</p>
+				<p class="infoBox"><a href="#7">Mas info >></a></p>
+			</div>
+
+			<div class="tresColumn">
+				<h2>Especialidades</h2>
+				<p>Acorde a una respetable trayectoria ....</p>
+				<p class="infoBox"><a href="#8">Mas info >></a></p>
 			</div>
 		</section>
 
-			
 		<footer>
 
 			<p>Proyecto de Software 2017 - Hospital Dr. Ricardo Gutierrez<span>v 0.1.0</span></p>
