@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Hospital Gutierrez</title>
+  <!-- Bootstrap core CSS-->
+  <link href="/Templates/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="/Templates/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="/Templates/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="/Templates/css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="home.php">Hospital Gutierrez</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
+          <a class="nav-link" href="inicio.php">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">Inicio</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pacientes">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-address-card-o"></i>
+            <span class="nav-link-text">Pacientes</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administracion">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-building-o"></i>
+            <span class="nav-link-text">Administracion</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+            <li>
+              <a href="#"><span class="nav-link-text">Usuarios</span></a>
+            </li>
+            <li>
+              <a href="#">Roles</a>
+            </li>
+            <li>
+              <a href="#">Permisos</a>
+            </li>
+          </ul>
+        </li>
+
+
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Buscar...">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li>
+          <a href="#" class="nav-link">{{  nombre }} </li></a>
+        </li>
+        <li>
+          <a href="/PHPScript/disconnectScript.php" class="nav-link"><i class="fa fa-fw fa-sign-out"></i>Logout</p></li></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+	<br/>
+    
+    
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-xl-4 col-sm-6 mb-3">
+          <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+              <div class="mr-5">
+             		<h2>El Hospital</h2>
+								<p>Este centro de salud tiene ....</p>
+              </div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Mas info >></span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
+              <div class="mr-5">
+         				<h2>Guardia</h2>
+								<p>Hospital Dr. Ricardo Gutierrez de La Plata ....</p>
+              </div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Mas info >></span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 mb-3">
+          <div class="card text-white bg-success o-hidden h-100">
+            <div class="card-body">
+              <div class="mr-5">
+              	<h2>Especialidades</h2>
+								<p>Acorde a una respetable trayectoria ....</p>
+              </div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left">Mas info >></span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+    
+
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Proyecto de Software 2017 - Hospital Dr. Ricardo Gutierrez<span>v 0.1.0</span></small>
+        </div>
+      </div>
+    </footer>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="/Templates/vendor/jquery/jquery.min.js"></script>
+    <script src="/Templates/vendor/popper/popper.min.js"></script>
+    <script src="/Templates/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/Templates/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/Templates/vendor/chart.js/Chart.min.js"></script>
+    <script src="/Templates/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/Templates/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/Templates/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="/Templates/js/sb-admin-datatables.min.js"></script>
+    <script src="/Templates/js/sb-admin-charts.min.js"></script>
+  </div>
+</body>
+
+</html>
