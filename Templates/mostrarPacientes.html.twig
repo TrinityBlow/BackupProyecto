@@ -1,0 +1,69 @@
+{% extends "base.html.twig" %}
+{% block title %}MostrarPacientes{% endblock %}
+{% block section %}
+	
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="text-center">
+      <h2>Pacientes</h1>
+    </div>
+  </div>
+  		
+<nav>
+	<div class="row">
+		{% if paciente_new == true %}
+			<div class="col-sm-12 col-md-4">
+				<a href="agregarPaciente.php" class="nav-link"><i class="fa fa-plus-square" aria-hidden="true"></i>Agregar Paciente</a>
+			</div>
+		{% endif %}
+		{% if paciente_update == true %} 
+			<div class="col-sm-12 col-md-4">    
+				<a href="modificarPacientes.php"  class="nav-link"><i class="fa fa-cog" aria-hidden="true"></i>Modificar</a>
+			</div>
+		{% endif %}		
+		{% if paciente_destroy == true %}    
+			<div class="col-sm-12 col-md-4"> 	
+				<a href="eliminarPacientes.php" class="nav-link" ><i class="fa fa-trash" aria-hidden="true"></i>Eliminar</a>
+			</div>
+		{% endif %}		
+	</div>
+</nav>
+
+
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			  <tr>
+			    <th>Apellido</th>
+			    <th>Nombre</th>
+			    <th>DNI</th>
+			    <th>Obra Social</th>
+			    <th>Datos Demograficos</th>
+			  </tr>
+	{% for item in resources %}
+						<form action="/PHPScript/buscarDatosDemograficos.php" method="post">
+							<tr>
+								<th>{{ item.apellido }}</th>
+								<th>{{ item.nombre }}</th>
+								<th><input type="hidden" name="dni" value="{{ item.dni }}">{{ item.dni }}</th>
+								<th>{{ item.obra_social }}</th>
+								<th><button type="submit" class="btn btn-primary btn-sm" ><p class="fa fa-plus-square">Agregar</p></button>									<button type="submit" formaction="/PHPScript/buscarModificarDatosDem.php" class="btn btn-primary btn-sm" ><p  class="fa fa-pencil-square-o" aria-hidden="true">Modificar</p></button></th>
+							</tr>
+						</form>
+	{% endfor %}
+			</table>
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="{{prevPage}}">&laquo;</a></li>
+					{% for i in 1..cantPages %}
+						 <li class="page-item"><a class="page-link" href='mostrarPacientes.php?page={{i}}'> {{ i }}</a></li>
+					{% endfor %}
+					<li class="page-item"><a class="page-link "  href="{{sigPage}}">&raquo;</a></li>
+				</ul>
+		</div>
+	</div>
+</div>
+	
+
+	
+{% endblock %}
+

@@ -10,12 +10,14 @@
  */
 
 
-class Home extends TwigView {
+class UpdatePaciente extends TwigView {
     
     public function show($autenticacion) {
         
-    	echo self::getTwig()->render('home.html.twig',$autenticacion);
+        echo self::getTwig()->render('updatePaciente.html.twig',$autenticacion);
+        
         
     }
+
     
 }

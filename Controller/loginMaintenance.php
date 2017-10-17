@@ -5,15 +5,15 @@
 
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/Controller/ResourceController.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/TwigView.php');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/Login.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/LoginMaintenance.php');
 
 	$autenticacion = ResourceController::getInstance()->checkPermisos();
-	if(ResourceController::getInstance()->online($autenticacion)){
+	if(!ResourceController::getInstance()->online($autenticacion)){
 		if (($autenticacion['login']) == false){
 			if(!isset($_SESSION['errorlogin'])){
-				ResourceController::getInstance()->showView('Login');
+				ResourceController::getInstance()->showView('LoginMaintenance');
 			} else{
-				ResourceController::getInstance()->showViewError('Login',$_SESSION['errorlogin'],$autenticacion);
+				ResourceController::getInstance()->showViewError('LoginMaintenance',$_SESSION['errorlogin'],$autenticacion);
 			   	unset($_SESSION['errorlogin']);
 			}
 		}

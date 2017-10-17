@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block title %}Login{% endblock %}
+{% block section %}
+<div class="card card-register mx-auto mt-5">
+  <div class="card-header">Registro</div>
+      <div class="card-body">
+        <form action="/PHPScript/modificarUsuario.php" method="post">
+        	<input type="hidden" name="username" value="{{ modificarUsername }}">
+        	
+        	<div class="form-group">
+            <div class="form-row">
+              <div class="col-md-8">
+                <label for="exampleInputName">Email</label>
+                
+                <input class="form-control" name="email" id="email" type="text" aria-describedby="nameHelp" value="{{ email }}" required />
+                
+              </div>
+            </div>
+          </div> 
+
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-8">
+                <label for="exampleInputName">Nombre</label>
+                <input class="form-control" name="name" id="name" type="text" aria-describedby="nameHelp" value="{{ nombre }}" required/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-8">
+                <label for="exampleInputName">Apellido</label>
+                <input class="form-control" name="surname" id="surname" type="text" aria-describedby="nameHelp" value="{{ apellido }}" required/>
+              </div>
+            </div>
+          </div>          
+
+
+
+			{% if error == 'passwordDiferente' %}
+			<p class='alert-danger'>*Las contraseñas no son iguales, por favor vualva a intentar.</p>
+			{% elseif error == 'campoVacio' %}
+			<p class='alert-danger'>*Hay algun campo vacio.</p>
+			  {% elseif error == 'sistema' %}
+			<p class='alert-danger'>*Ocurrio un incoveniente con el sistema, por favor vuelva a intentar más tarde.</p>
+			{% endif %}
+
+          <div class="form-row">
+          	<input class="btn btn-primary btn-block btn-lg col-md-4" type="submit" value="Registrar"/>
+          	<a class="btn btn-default btn-lg col-md-4" href="home.php">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+{% endblock %}

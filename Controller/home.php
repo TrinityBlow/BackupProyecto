@@ -7,13 +7,17 @@
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/TwigView.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/Home.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/LoginHome.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/Maintenance.php');
 
 
-	session_start();
-	if (!empty($_SESSION["username"])){
-		ResourceController::getInstance()->showLogin('LoginHome',$_SESSION["username"]);
-	} else {	
-		ResourceController::getInstance()->showView('Home');
+	$autenticacion = ResourceController::getInstance()->checkPermisos();
+	if(ResourceController::getInstance()->online($autenticacion)){
+		if($autenticacion['login'] == true){
+			ResourceController::getInstance()->showView('LoginHome',$autenticacion);
+		} else{		
+			ResourceController::getInstance()->showView('Home',$autenticacion);
+		}
+	} else{
+		ResourceController::getInstance()->showView('Maintenance');
 	}
-
 ?>

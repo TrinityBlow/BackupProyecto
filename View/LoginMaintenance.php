@@ -10,11 +10,11 @@
  */
 
 
-class Login extends TwigView {
+class LoginMaintenance extends TwigView {
     
     public function show() {
         
-        echo self::getTwig()->render('login.html.twig');
+        echo self::getTwig()->render('loginMaintenance.html.twig');
         
         
     }
@@ -22,7 +22,7 @@ class Login extends TwigView {
 
     public function showError($error,$autenticacion) {
         
-        echo self::getTwig()->render('login.html.twig',array('error' => $error));
+        echo self::getTwig()->render('loginMaintenance.html.twig',array('error' => $error));
         
     }
     

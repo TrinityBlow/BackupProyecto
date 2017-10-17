@@ -1,0 +1,17 @@
+body, html {
+    height: 100%;
+}
+
+
+.jumbotron { 
+    /* The image used */
+    background-image: url("/Templates/css/imagenes/maintenence.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -5,18 +5,13 @@
 
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/Controller/ResourceController.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/TwigView.php');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/Login.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/DatosDemograficos.php');
 
 	$autenticacion = ResourceController::getInstance()->checkPermisos();
 	if(ResourceController::getInstance()->online($autenticacion)){
-		if (($autenticacion['login']) == false){
-			if(!isset($_SESSION['errorlogin'])){
-				ResourceController::getInstance()->showView('Login');
-			} else{
-				ResourceController::getInstance()->showViewError('Login',$_SESSION['errorlogin'],$autenticacion);
-			   	unset($_SESSION['errorlogin']);
-			}
+		if (($autenticacion['login']) == true && isset($_SESSION['dni'])){
+			$autenticacion['dni'] = $_SESSION['dni'];
+			ResourceController::getInstance()->showView('DatosDemograficos',$autenticacion);
 		}
 	}
-
 ?>

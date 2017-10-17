@@ -16,7 +16,7 @@ abstract class PDORepository {
     const USERNAME = "grupo28";
     const PASSWORD = "YTAxZDdkNDFiM2Q5";
 	const HOST ="localhost";
-	const DB = "hospitalDB";
+	const DB = "grupo28";
     
     
     private function getConnection(){
@@ -28,6 +28,13 @@ abstract class PDORepository {
         return $connection;
     }
 
+    protected function queryCount($sql, $args){
+        $connection = $this->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute($args);
+        return $stmt->rowCount();
+    }
+	
 
     protected function queryList($sql, $args){
         $connection = $this->getConnection();
@@ -35,7 +42,21 @@ abstract class PDORepository {
         $stmt->execute($args);
         return $stmt->fetchAll();
     }
-
+    protected function queryRow($sql, $args){
+        $connection = $this->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute($args);
+        return $stmt->fetch();
+    }
+    
+    protected function queryLastInsert($sql, $args){
+        $connection = $this->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute($args);
+        
+        return $connection->lastInsertId();
+    }    
+    
     protected function queryInsert($sql, $args){
 		try {
 			$connection = $this->getConnection();
@@ -46,8 +67,10 @@ abstract class PDORepository {
 			return 1; //exito
 		}
 		catch(PDOException $e){
+			echo $e;
 			return 0; //error
 		}
     }
+
     
 }

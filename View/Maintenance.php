@@ -10,11 +10,11 @@
  */
 
 
-class Home extends TwigView {
+class Maintenance extends TwigView {
     
-    public function show($autenticacion) {
+    public function show() {
         
-    	echo self::getTwig()->render('home.html.twig',$autenticacion);
+    	echo self::getTwig()->render('maintenance.html.twig');
         
     }
     

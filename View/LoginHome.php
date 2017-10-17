@@ -9,9 +9,8 @@
 
 class LoginHome extends TwigView {
     
-    public function show($username) {
-        
-        echo self::getTwig()->render('loginHome.html.twig',array('nombre' => $username));
+    public function show($autenticacion) {
+        echo self::getTwig()->render('base.html.twig',$autenticacion);
         
         
     }
