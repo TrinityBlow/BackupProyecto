@@ -27,6 +27,33 @@ class ResourceRepository extends PDORepository {
 		return $answer;
 	}
 
+	private function getPaciente($dni){
+		$answer = $this->queryRow("SELECT * FROM paciente where dni=?",array($dni));
+		return $answer;
+	}
+
+	private function datosDemPaciente($id_paciente){ 
+
+		$answer = $this->queryRow("SELECT * FROM paciente_tiene_datos_demograficos
+						INNER JOIN datos_demograficos ON datos_demograficos.id_datos_demograficos = paciente_tiene_datos_demograficos.id_datos_demograficos  where id_paciente=?",array($id_paciente));
+		return $answer;
+	}
+
+	public function datosDemPacienteConDNI($dni){ 
+		
+		$paciente = $this->getPaciente($dni);
+		$answer = $this->datosDemPaciente($paciente['id_paciente']);
+		return $answer;
+	}
+
+	private function pacienteTieneDatosDem($id_paciente){
+		$answer = $this->datosDemPaciente($id_paciente);
+		if($answer){
+			return 1;
+		} else{
+			return 0;
+		}
+	}
 
 	public function listLimitePaciente() {
         $answer = $this->queryList("select * from paciente", []);
@@ -37,9 +64,11 @@ class ResourceRepository extends PDORepository {
 					$element[$key] = '-';
 				}
 			}
+	    $datos_dem_estado = $this->pacienteTieneDatosDem($element['id_paciente']);
             $final_answer[] = array('apellido' => $element['apellido'],
 									'nombre' => $element['nombre'],
 									'dni' => $element['dni'],
+									'datos_dem_estado' => $datos_dem_estado,
 									'obra_social' => $element['obra_social']);
         }
         return $final_answer;
@@ -253,13 +282,28 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",array($apellido,$nombre,(int)$nacimiento,(in
 		return $answer;
 	}
 
+	public function destroyDatosDemForm($dni){
+		$paciente = $this->getPaciente($dni);
+		$datosDemPaciente = $this->datosDemPaciente($paciente['id_paciente']);
+		$this->queryInsert("DELETE FROM datos_demograficos WHERE id_datos_demograficos=? ",array($datosDemPaciente['id_datos_demograficos']));
+		$answer = $this->queryInsert("DELETE FROM paciente_tiene_datos_demograficos WHERE id_paciente=? ",array($paciente['id_paciente']));
+		return $answer;
+	}
+
+
 	public function destroyPacienteForm($dni){
+		$this->destroyDatosDemForm($dni);
 		$answer = $this->queryInsert("DELETE FROM paciente WHERE dni=? ",array($dni));
 		return $answer;
 	}
 	
 	public function updatePacienteForm($nombre,$apellido,$nacimiento,$domicilio,$telefono,$obra,$gender,$tipoDocumento,$nuevoDocumento,$dni){
 		$answer = $this->queryInsert("UPDATE paciente SET  nombre=?, apellido=?, nacimiento=?, domicilio=?, telefono=?, obra_social=?, genero=?, Tipo_dni=?, dni=? WHERE dni=? ",array ($nombre,$apellido,$nacimiento,$domicilio,$telefono,$obra,$gender,$tipoDocumento,$nuevoDocumento,$dni));
+	}
+
+	public function updateDatosDemPacienteForm($heladera,$electricidad,$mascota,$vivienda,$calefaccion,$agua,$dni){
+		$datosDem = $this->datosDemPacienteConDNI($dni);
+		$answer = $this->queryInsert("UPDATE datos_demograficos SET  heladera=?, electricidad=?, mascota=?, vivienda=?, calefaccion=?, agua=? WHERE id_datos_demograficos=? ",array ($heladera,$electricidad,$mascota,$vivienda,$calefaccion,$agua,$datosDem['id_datos_demograficos']));
 	}
 
 	public function modifyTitulo($titulo){

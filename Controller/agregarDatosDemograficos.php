@@ -8,8 +8,8 @@
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/View/DatosDemograficos.php');
 
 	$autenticacion = ResourceController::getInstance()->checkPermisos();
-	if(ResourceController::getInstance()->online($autenticacion)){
-		if (($autenticacion['login']) == true && isset($_SESSION['dni'])){
+	if(ResourceController::getInstance()->online($autenticacion) && isset($autenticacion['paciente_new'])){
+		if (isset($_SESSION['dni'])){
 			$autenticacion['dni'] = $_SESSION['dni'];
 			ResourceController::getInstance()->showView('DatosDemograficos',$autenticacion);
 		}

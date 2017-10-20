@@ -13,7 +13,7 @@ $autenticacion = ResourceController::getInstance()->checkPermisos();
 if(ResourceController::getInstance()->online($autenticacion) && (isset($autenticacion['paciente_update']))){
 	$dni = $_POST['dni']; 
 
-		if (!empty($dni)) {
+		if ($dni >= 0) {
 			$_SESSION['dni'] = $dni;
 			header("location: /Controller/agregarDatosDemograficos.php"); 
 		}

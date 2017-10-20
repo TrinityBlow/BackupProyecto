@@ -19,20 +19,19 @@ if(ResourceController::getInstance()->online($autenticacion) && (isset($autentic
 	$agua = $_POST['agua'];
 	$dni= $_POST['dni'];
 
-	if (($dni >= 0) && ($heladera >= 0) && ($electricidad >= 0) && ($mascota >= 0) && ($vivienda >= 0) && ($calefaccion >= 0) && ($agua >= 0)){
+	if ( ($dni >= 0) && ($heladera >= 0) && ($electricidad >= 0) && ($mascota >= 0) && ($vivienda >= 0) && ($calefaccion >= 0) && ($agua >= 0)){
 	//agregar fila
-		$answer = ResourceRepository::getInstance()->signupDatosDemograficos($heladera,$electricidad,$mascota,$vivienda,$calefaccion,$agua,$dni);
-		echo $answer;
-			if($answer){
-			    // Redirect to home page
-			    header("location: /Controller/mostrarPacientes.php");
-		   	} else{
-				$_SESSION['errorRegistrar'] = 'sistema';
-				header("Location: /Controller/mostrarPacientes.php");
-			}
-			}else{
-			$_SESSION['errorRegistrar'] = 'campoVacio';
+		$answer = ResourceRepository::getInstance()->updateDatosDemPacienteForm($heladera,$electricidad,$mascota,$vivienda,$calefaccion,$agua,$dni);
+		if($answer){
+		    // Redirect to home page
+		    header("location: /Controller/mostrarPacientes.php");
+	   	} else{
+			$_SESSION['errorRegistrar'] = 'sistema';
 			header("Location: /Controller/mostrarPacientes.php");
+		}
+	}else{
+		$_SESSION['errorRegistrar'] = 'campoVacio';
+		header("Location: /Controller/mostrarPacientes.php");
 	}
 
 }

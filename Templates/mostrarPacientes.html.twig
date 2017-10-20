@@ -47,7 +47,16 @@
 								<th>{{ item.nombre }}</th>
 								<th><input type="hidden" name="dni" value="{{ item.dni }}">{{ item.dni }}</th>
 								<th>{{ item.obra_social }}</th>
-								<th><button type="submit" class="btn btn-primary btn-sm" ><p class="fa fa-plus-square">Agregar</p></button>									<button type="submit" formaction="/PHPScript/buscarModificarDatosDem.php" class="btn btn-primary btn-sm" ><p  class="fa fa-pencil-square-o" aria-hidden="true">Modificar</p></button></th>
+								<th>
+										{% if item.datos_dem_estado == 0 %}
+											<button type="submit" class="btn btn-primary btn-sm" ><p class="fa fa-plus-square">Agregar</p></button>		
+										{% else %}	
+											<button type="submit" formaction="/PHPScript/buscarModificarDatosDem.php" class="btn btn-primary btn-sm" ><p  class="fa fa-pencil-square-o" aria-hidden="true">Ver/Modificar</p></button>			
+											{% if paciente_destroy == true %}
+												<button type="submit" formaction="/PHPScript/eliminarDatosDemPacienteScript.php" class="btn btn-primary btn-sm" ><p  class="fa fa-trash-o" aria-hidden="true">Eliminar</p></button>			
+											{% endif %}		
+										{% endif %}						
+							</th>
 							</tr>
 						</form>
 	{% endfor %}

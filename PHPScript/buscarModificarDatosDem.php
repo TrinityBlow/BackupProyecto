@@ -13,9 +13,20 @@ $autenticacion = ResourceController::getInstance()->checkPermisos();
 if(ResourceController::getInstance()->online($autenticacion) && (isset($autenticacion['usuario_update']))){
 	$dni = $_POST['dni']; 
 
-		if (!empty($dni)) {
-			$_SESSION['dni'] = $dni;
-			header("location: /Controller/modificarDatosDemograficos.php");  
+		if ($dni >= 0) {
+			$answer = ResourceRepository::getInstance()->datosDemPacienteConDNI($dni);
+			if ($answer){
+				$_SESSION['dni'] = $dni;
+				$_SESSION['heladera'] = $answer['heladera'];
+				$_SESSION['electricidad'] = $answer['electricidad'];
+				$_SESSION['mascota'] = $answer['mascota'];
+				$_SESSION['vivienda'] = $answer['vivienda'];
+				$_SESSION['calefaccion'] = $answer['calefaccion'];
+				$_SESSION['agua'] = $answer['agua'];
+				header("location: /Controller/modificarDatosDemograficos.php");  
+			}else{
+				header("location: /Controller/mostrarPacientes.php");  
+			}
 		}
 }
 ?>
