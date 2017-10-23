@@ -16,9 +16,10 @@ if(ResourceController::getInstance()->online($autenticacion) && (isset($autentic
 		if (!empty($username)) {
 			$_SESSION['modificarUsername'] = $username;
 			$datsDelUsuario = ResourceRepository::getInstance()->getDatosUsuario($username);
+			print_r($datsDelUsuario);
 			$_SESSION['email'] = $datsDelUsuario['email'];
-			$_SESSION['name'] = $datsDelUsuario['name'];
-			$_SESSION['surname'] = $datsDelUsuario['surname'];
+			$_SESSION['name'] = $datsDelUsuario['first_name'];
+			$_SESSION['surname'] = $datsDelUsuario['last_name'];
 			header("location: /Controller/modificarUsuarios.php"); 
 		}
 }

@@ -23,7 +23,7 @@
             <div class="form-row">
               <div class="col-md-8">
                 <label for="exampleInputName">Nombre</label>
-                <input class="form-control" name="name" id="name" type="text" aria-describedby="nameHelp" value="{{ nombre }}" required/>
+                <input class="form-control" name="name" id="name" type="text" aria-describedby="nameHelp" value="{{ name }}" required/>
               </div>
             </div>
           </div>
@@ -31,16 +31,12 @@
             <div class="form-row">
               <div class="col-md-8">
                 <label for="exampleInputName">Apellido</label>
-                <input class="form-control" name="surname" id="surname" type="text" aria-describedby="nameHelp" value="{{ apellido }}" required/>
+                <input class="form-control" name="surname" id="surname" type="text" aria-describedby="nameHelp" value="{{ surname }}" required/>
               </div>
             </div>
           </div>          
 
-
-
-			{% if error == 'passwordDiferente' %}
-			<p class='alert-danger'>*Las contraseñas no son iguales, por favor vualva a intentar.</p>
-			{% elseif error == 'campoVacio' %}
+			{% if error == 'campoVacio' %}
 			<p class='alert-danger'>*Hay algun campo vacio.</p>
 			  {% elseif error == 'sistema' %}
 			<p class='alert-danger'>*Ocurrio un incoveniente con el sistema, por favor vuelva a intentar más tarde.</p>

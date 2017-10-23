@@ -74,14 +74,34 @@ class ResourceRepository extends PDORepository {
         return $final_answer;
     }
 
-
-	private function limiteUsuariosPorApellido($apellido,$activo){
-		if (empty($apellido)){
-			$apellido = '%';
+	private function prepararBusquedaString($string){
+		if (empty($string)){
+			$string = '%';
 		} else{
-			$apellido = '%'.$apellido.'%';
+			$string = '%'.$string.'%';
 		}
-		if ($activo == 1){
+		return $string;
+	}
+
+	private function prepararBusquedaNoActivo($noActivo){
+		if ($noActivo == 1){
+			$noActivo = 1;
+		} else {
+			$noActivo = 0;
+		}
+		  return $noActivo;
+	}
+
+	private function prepararBusquedaActivo($activo){
+		if ($activo == 2){
+			$activo = 0;
+		} else {
+			$activo = 1;
+		}
+		  return $activo;
+	}
+
+/*		if ($activo == 1){
 			$noActivo = 1;
 		} elseif ($activo == 2){
 			$activo = 0;
@@ -89,7 +109,13 @@ class ResourceRepository extends PDORepository {
 		} else{
 			$activo = 1;
 			$noActivo = 0;
-		}
+		}*/
+
+
+	private function limiteUsuariosPorApellido($apellido,$activo){
+		$apellido = $this->prepararBusquedaString($apellido);
+		$noActivo = $this->prepararBusquedaNoActivo($activo);
+		$activo = $this->prepararBusquedaActivo($activo);
         $answer = $this->queryList("SELECT * 
 									FROM users
 									WHERE last_name LIKE ? AND (activo = ? OR activo = ?)", array($apellido,$activo,$noActivo));
@@ -97,41 +123,19 @@ class ResourceRepository extends PDORepository {
 	}
 
 	private function limiteUsuariosPorUsername($username,$activo){
-		if (empty($username)){
-			$username = '%';
-		} else{
-			$username = '%'.$username.'%';
-		}
-		if ($activo == 1){
-			$noActivo = 1;
-		} elseif ($activo == 2){
-			$activo = 0;
-			$noActivo = 0;
-		} else{
-			$activo = 1;
-			$noActivo = 0;
-		}
-        $answer = $this->queryList("SELECT * 
+		$username = $this->prepararBusquedaString($username);
+		$noActivo = $this->prepararBusquedaNoActivo($activo);
+		$activo = $this->prepararBusquedaActivo($activo);
+    $answer = $this->queryList("SELECT * 
 									FROM users
 									WHERE username LIKE ? AND (activo = ? OR activo = ?)", array($username,$activo,$noActivo));
 		return $answer;
 	}
 
 	private function limiteUsuariosPorUsernameSinAdmin($username,$activo){
-		if (empty($username)){
-			$username = '%';
-		} else{
-			$username = '%'.$username.'%';
-		}
-		if ($activo == 1){
-			$noActivo = 1;
-		} elseif ($activo == 2){
-			$activo = 0;
-			$noActivo = 0;
-		} else{
-			$activo = 1;
-			$noActivo = 0;
-		}
+		$username = $this->prepararBusquedaString($username);
+		$noActivo = $this->prepararBusquedaNoActivo($activo);
+		$activo = $this->prepararBusquedaActivo($activo);
         $answer = $this->queryList("SELECT * 
 									FROM users
 									WHERE username LIKE ? AND (activo = ? OR activo = ?) AND NOT EXISTS(
@@ -346,13 +350,13 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",array($apellido,$nombre,(int)$nacimiento,(in
 	}
 
 	public function getDatosUsuario($username){
-		$answer = $this->queryRow("SELECT email,first_name,last_name FROM users WHERE username = ?", []);
-		return $answer['datosUsuario'];
+		$answer = $this->queryRow("SELECT email,first_name,last_name FROM users WHERE username = ?", array($username));
+		return $answer;
 	}
 	
 		public function getDatosPaciente($dni){
-		$answer = $this->queryRow("SELECT * FROM paciente WHERE dni = ?", []);
-		return $answer['datosPaciente'];
+		$answer = $this->queryRow("SELECT * FROM paciente WHERE dni = ?", array($dni));
+		return $answer;
 	}
 
 	public function modifyRolesDelUsuario($username,$roles){

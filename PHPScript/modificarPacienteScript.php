@@ -13,29 +13,26 @@ $autenticacion = ResourceController::getInstance()->checkPermisos();
 if(ResourceController::getInstance()->online($autenticacion) && (isset($autenticacion['paciente_update']))){
 	$dni = $_POST['dni']; 
 
-		if (!empty($dni)) {
+		if ($dni > 0) {
 			$_SESSION['dni'] = $dni;
 			$answer = ResourceRepository::getInstance()->getDatosPaciente($dni); 
-			$_SESSION['nombre'] = $nombre;
-			$_SESSION['apellido'] = $apellido;
-			$_SESSION['nacimiento'] = $nacimiento;
-			$_SESSION['domicilio'] = $domicilio;
-			$_SESSION['telefono'] = $telefono;
-			$_SESSION['obra'] = $obra;
-			$_SESSION['gender'] = $gender;
-			$_SESSION['tipoDocumento'] = $tipoDocumento;
-			
 			if($answer){
 			   // Redirect to home page
-			    header("location: /Controller/updatePaciente.php");
+				$_SESSION['nombre'] = $answer['nombre'];
+				$_SESSION['apellido'] = $answer['apellido'];
+				$_SESSION['nacimiento'] = $answer['nacimiento'];
+				$_SESSION['domicilio'] = $answer['domicilio'];
+				$_SESSION['telefono'] = $answer['telefono'];
+				$_SESSION['obra'] = $answer['obra_social'];
+				$_SESSION['gender'] = $answer['genero'];
+				$_SESSION['tipoDocumento'] = $answer['Tipo_dni'];
 			} else{
 				$_SESSION['error'] = 'sistema';
-				header("Location: /Controller/updatePaciente.php");
 			}      
 		}else{
 			$_SESSION['error'] = 'sistema';
-			header("Location: /Controller/updatePaciente.php");
 		}
+			header("Location: /Controller/updatePaciente.php");
 }
 
 ?>
